@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowSplashScreenBackground">@drawable/gradient_background</item>
+        <item name="android:windowBackground">@drawable/bg_gradient</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/logobgcircle</item>
+    </style>
+</resources>

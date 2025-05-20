@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="todo">TODO</string>
+    <string name="todo1">TODO</string>
+    <string name="please_enter_your_valid_phone_number_nwe_will_send_you_a_4_digit_code_to_verify">Please enter your valid phone number.\nWe will send you a 4-digit code to verify</string>
+    <string name="default_web_client_id">1077715923391-8175l17g3itqujf289e0qrvcc4s03onq.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">1203783907886975</string>
+    <string name="facebook_client_token">UjDH4EQyNGGLrE4zzOH8ze2DLWY</string>
+
+
+</resources>

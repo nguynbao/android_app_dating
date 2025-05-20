@@ -1,0 +1,22 @@
+<!-- res/drawable/btn_gradient_border.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Viền ngoài -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="14dp" />
+        </shape>
+    </item>
+
+    <!-- Nền gradient bên trong (bên trong viền 2dp) -->
+    <item android:top="2dp" android:bottom="2dp" android:left="2dp" android:right="2dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#FA457E"
+                android:endColor="#7B49FF"
+                android:angle="45" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+
+</layer-list>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/back_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/backicon" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skip"
+                android:layout_gravity="right"
+                android:letterSpacing="0.09"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/red"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Likes, Interests"
+            android:gravity="center"
+            android:textSize="40dp"
+            android:paddingTop="10dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/purple"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Share your likes &amp; pasion with others"
+            android:gravity="center"
+            android:letterSpacing="0.09"
+            android:textSize="16sp"
+            android:textColor="@color/purple"/>
+</LinearLayout>
+
+     <androidx.recyclerview.widget.RecyclerView
+         android:id="@+id/like_interest_grid"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="0.9"
+         android:numColumns="2" />
+    <TextView
+        android:id="@+id/Textgradient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Load More"
+        android:textSize="20dp"
+        android:layout_gravity="center"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ctn"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_border_gradientbg"
+        android:text="Continue"/>
+
+
+
+</LinearLayout>
