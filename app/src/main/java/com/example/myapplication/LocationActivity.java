@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,8 +27,6 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -128,7 +125,7 @@ public class LocationActivity extends AppCompatActivity {
                     .set(userInfo)
                     .addOnSuccessListener(unused -> {
                         Toast.makeText(LocationActivity.this, "Đã lưu thành phố và vị trí", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LocationActivity.this, HomeSwipeActivity.class));
+                        startActivity(new Intent(LocationActivity.this, HomeActivity.class));
                     })
                     .addOnFailureListener(e ->
                             Toast.makeText(LocationActivity.this, "Lỗi lưu dữ liệu: " + e.getMessage(), Toast.LENGTH_SHORT).show()

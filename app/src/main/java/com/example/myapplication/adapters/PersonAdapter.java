@@ -39,7 +39,8 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
     @Override
     public int getItemCount() {
-        return personList.size();
+
+        return personList == null ? 0 : personList.size();
     }
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {

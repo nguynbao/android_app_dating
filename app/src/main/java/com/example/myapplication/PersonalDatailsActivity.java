@@ -148,7 +148,6 @@ public class PersonalDatailsActivity extends AppCompatActivity {
         }
 
         // Lưu dữ liệu vào Firestore
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         Map<String, Object> userInfo = new HashMap<>();

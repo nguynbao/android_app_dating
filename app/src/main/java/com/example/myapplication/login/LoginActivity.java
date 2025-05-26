@@ -11,6 +11,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myapplication.PersonalDatailsActivity;
 import com.example.myapplication.R;
 
@@ -60,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         // Nếu người dùng đã đăng nhập, chuyển sang màn PersonalDatailsActivity luôn
 //        if (mAuth.getCurrentUser() != null) {
-//            startActivity(new Intent(LoginActivity.this, PersonalDatailsActivity.class));
+//            startActivity(new Intent(LoginActivity.this, HomeSwipeActivity.class));
 //            finish();
 //            return;
 //        }
@@ -108,8 +109,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 googleSignIn.signInWithGoogle(); // Gọi phương thức signInWithGoogle
             }
-
-
             });
         }
     private void handleFacebookAccessToken(AccessToken token) {

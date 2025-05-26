@@ -45,12 +45,15 @@ dependencies {
     implementation("com.facebook.android:facebook-android-sdk:18.0.3")
     implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
     implementation("com.google.firebase:firebase-auth")
+    implementation ("com.google.firebase:firebase-database")// Firebase Realtime Database
     implementation ("com.google.firebase:firebase-firestore")
     implementation ("com.github.bumptech.glide:glide:4.15.1")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.15.1")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.google.android.gms:play-services-location:21.0.1")
+    implementation ("com.google.android.material:material:1.9.0")  // hoặc version mới nhất
+    implementation ("androidx.viewpager2:viewpager2:1.1.0")
 
 
 }

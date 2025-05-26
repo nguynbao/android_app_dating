@@ -8,8 +8,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 
+import com.example.myapplication.HomeActivity;
 import com.example.myapplication.PersonalDatailsActivity;
 import com.example.myapplication.R;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -21,6 +21,8 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 /* ------------------- GOOGLE SIGN-IN ------------------- */
 public class GoogleSignIn {
     private final Activity activity;
@@ -39,6 +41,7 @@ public class GoogleSignIn {
                 .build();
         this.mGoogleSignInClient = com.google.android.gms.auth.api.signin.GoogleSignIn.getClient(activity, gso);
     }
+
     // Phương thức gọi khi nhấn nút Đăng nhập Google
 
 
@@ -48,8 +51,6 @@ public class GoogleSignIn {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             googleSignInLauncher.launch(signInIntent);
         });
-
-
     }
 
     // Phương thức xử lý kết quả từ Google Sign-In Activity
@@ -77,21 +78,34 @@ public class GoogleSignIn {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential).addOnCompleteListener(activity, task -> {
             if (task.isSuccessful()) {
-                // Xác thực Firebase thành công
                 FirebaseUser user = mAuth.getCurrentUser();
                 Log.d(TAG, "firebaseAuthWithGoogle:success");
-                Toast.makeText(activity, "Xác thực với Firebase thành công.", Toast.LENGTH_SHORT).show();
 
-                // Chuyển sang màn hình chính
-                Intent intent = new Intent(activity, PersonalDatailsActivity.class);
-                activity.startActivity(intent);
+                // Kiểm tra người dùng đã có thông tin cá nhân chưa trong Firestore
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                String uid = user.getUid();
+
+                db.collection("users").document(uid).get().addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        // Đã có thông tin => vào HomeActivity
+                        Intent intent = new Intent(activity, HomeActivity.class);
+                        activity.startActivity(intent);
+                    } else {
+                        // Chưa có thông tin => vào PersonalDatailsActivity để nhập
+                        Intent intent = new Intent(activity, PersonalDatailsActivity.class);
+                        activity.startActivity(intent);
+                    }
+                }).addOnFailureListener(e -> {
+                    Toast.makeText(activity, "Không thể kiểm tra người dùng: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
 
             } else {
                 Log.w("FirebaseAuth", "signInWithCredential:failure", task.getException());
                 Toast.makeText(activity, "Authentication Failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-    }
+    }}
 
 
-}
+
+
